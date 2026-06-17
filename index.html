@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ContentAI - KI Social Media Tool</title>
+<title>Postly – AI Social Media Posts in Sekunden</title>
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,116 +19,118 @@
 
 body{
     font-family:'Inter', sans-serif;
-    background:#0b0b10;
-    color:white;
-    overflow-x:hidden;
+    background:#ffffff;
+    color:#0f172a;
 }
 
 /* NAV */
 nav{
     position:fixed;
-    width:100%;
     top:0;
-    left:0;
+    width:100%;
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(10px);
     display:flex;
     justify-content:space-between;
     align-items:center;
     padding:18px 10%;
-    background:rgba(10,10,15,0.7);
-    backdrop-filter:blur(12px);
+    border-bottom:1px solid #e2e8f0;
     z-index:1000;
-    border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
 .logo{
+    display:flex;
+    align-items:center;
+    gap:8px;
     font-family:'Poppins', sans-serif;
-    font-size:1.5rem;
+    font-size:1.4rem;
     font-weight:700;
-    color:#ff4fd8;
 }
 
-nav ul{
-    display:flex;
-    list-style:none;
-    gap:25px;
+.logo span:first-child{
+    color:#ff4d6d;
+}
+.logo span:last-child{
+    color:#4f46e5;
 }
 
 nav a{
-    color:#ddd;
     text-decoration:none;
+    margin-left:20px;
+    color:#475569;
     font-weight:500;
     transition:0.3s;
 }
 
 nav a:hover{
-    color:#ff4fd8;
+    color:#ff4d6d;
 }
 
 /* HERO */
 .hero{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
+    padding:140px 10% 80px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
     align-items:center;
-    text-align:center;
-    padding:120px 10% 80px;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(255,79,216,0.25), transparent 40%),
-        radial-gradient(circle at 80% 60%, rgba(124,58,237,0.25), transparent 40%),
-        #0b0b10;
 }
 
 .hero h1{
+    font-size:3.5rem;
     font-family:'Poppins', sans-serif;
-    font-size:4rem;
     line-height:1.1;
 }
 
 .hero span{
-    color:#ff4fd8;
+    color:#ff4d6d;
 }
 
 .hero p{
     margin-top:20px;
-    max-width:650px;
-    color:#b5b5c2;
     font-size:1.2rem;
-    margin-inline:auto;
+    color:#475569;
 }
 
-/* BUTTON */
 .btn{
     display:inline-block;
     margin-top:30px;
-    padding:14px 34px;
-    border-radius:50px;
-    background:linear-gradient(135deg,#ff4fd8,#7c3aed);
+    padding:14px 28px;
+    border-radius:12px;
+    background:linear-gradient(135deg,#ff4d6d,#4f46e5);
     color:white;
     text-decoration:none;
     font-weight:600;
     transition:0.3s;
-    box-shadow:0 10px 30px rgba(255,79,216,0.25);
 }
 
 .btn:hover{
     transform:translateY(-3px);
 }
 
-/* SECTIONS */
+/* IMAGE MOCK */
+.mock{
+    background:linear-gradient(135deg,#ffe4e6,#e0e7ff);
+    border-radius:20px;
+    height:380px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Poppins';
+    font-weight:600;
+    color:#64748b;
+    border:1px solid #e2e8f0;
+}
+
+/* SECTION */
 section{
     padding:100px 10%;
 }
 
-/* SECTION TITLE */
-.section-title{
+/* TRUST */
+.trust{
     text-align:center;
-    margin-bottom:60px;
-}
-
-.section-title h2{
-    font-family:'Poppins', sans-serif;
-    font-size:2.6rem;
-    color:#ff4fd8;
+    color:#64748b;
+    margin-top:20px;
 }
 
 /* FEATURES */
@@ -139,85 +141,82 @@ section{
 }
 
 .card{
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.08);
-    padding:28px;
-    border-radius:18px;
-    transition:0.4s;
-    backdrop-filter:blur(10px);
+    padding:25px;
+    border:1px solid #e2e8f0;
+    border-radius:16px;
+    transition:0.3s;
 }
 
 .card:hover{
-    transform:translateY(-8px);
-    border-color:#ff4fd8;
+    transform:translateY(-5px);
+    border-color:#ff4d6d;
 }
 
 .card h3{
-    color:#ff4fd8;
+    font-family:'Poppins';
+    color:#ff4d6d;
     margin-bottom:10px;
-    font-family:'Poppins', sans-serif;
 }
 
-/* STATS */
-.stats{
-    display:flex;
-    justify-content:center;
+/* DEMO */
+.demo{
+    display:grid;
+    grid-template-columns:1fr 1fr;
     gap:60px;
-    flex-wrap:wrap;
-    text-align:center;
+    align-items:center;
 }
 
-.stat h3{
-    font-size:3rem;
-    color:#ff4fd8;
-    font-family:'Poppins', sans-serif;
+.demo-box{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:16px;
+    padding:30px;
+}
+
+.tag{
+    display:inline-block;
+    background:#ffe4e6;
+    color:#ff4d6d;
+    padding:6px 12px;
+    border-radius:999px;
+    font-size:0.8rem;
+    margin-bottom:10px;
 }
 
 /* CTA */
 .cta{
     text-align:center;
+    background:linear-gradient(135deg,#ff4d6d,#4f46e5);
+    color:white;
     padding:80px;
-    border-radius:25px;
-    background:linear-gradient(135deg,#ff4fd8,#7c3aed);
+    border-radius:20px;
 }
 
 .cta p{
     margin-top:10px;
-    color:#f1f1f1;
+    opacity:0.9;
 }
 
 /* FOOTER */
 footer{
     text-align:center;
     padding:30px;
-    color:#777;
-}
-
-/* ANIMATION */
-.fade{
-    opacity:0;
-    transform:translateY(40px);
-    transition:0.8s ease;
-}
-
-.fade.show{
-    opacity:1;
-    transform:translateY(0);
+    color:#94a3b8;
 }
 
 /* MOBILE */
-@media(max-width:768px){
+@media(max-width:900px){
+    .hero{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .demo{
+        grid-template-columns:1fr;
+    }
+
     .hero h1{
-        font-size:2.6rem;
-    }
-
-    nav ul{
-        gap:15px;
-        font-size:0.9rem;
-    }
-
-    section{
-        padding:70px 6%;
+        font-size:2.5rem;
     }
 }
 </style>
@@ -225,109 +224,108 @@ footer{
 
 <body>
 
+<!-- NAV -->
 <nav>
-    <div class="logo">ContentAI</div>
-    <ul>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#stats">Vorteile</a></li>
-        <li><a href="#cta">Start</a></li>
-    </ul>
+    <div class="logo">
+        <span>Post</span><span>ly</span>
+    </div>
+
+    <div>
+        <a href="#features">Features</a>
+        <a href="#demo">Demo</a>
+        <a href="#cta">Start</a>
+    </div>
 </nav>
 
-<section class="hero fade">
+<!-- HERO -->
+<section class="hero">
+
     <div>
-        <h1>KI für <span>viralen</span> Social Media Content</h1>
+        <h1>Create <span>viral</span> social media posts with AI</h1>
         <p>
-            Erstelle Posts, Captions und Ideen in Sekunden – mit modernster KI-Technologie für Creator & Businesses.
+            Postly generates captions, ideas and full posts for Instagram, TikTok, LinkedIn and more – in seconds.
         </p>
-        <a href="#features" class="btn">Jetzt starten</a>
-    </div>
-</section>
 
-<section id="features" class="fade">
+        <a href="#demo" class="btn">Try Postly free</a>
 
-<div class="section-title">
-    <h2>Features</h2>
-</div>
-
-<div class="features">
-
-    <div class="card">
-        <h3>✍ KI Content</h3>
-        <p>Automatische Erstellung von Posts und Ideen.</p>
+        <div class="trust">No credit card required • Free trial available</div>
     </div>
 
-    <div class="card">
-        <h3>📈 Trends</h3>
-        <p>Erkennt virale Themen in Echtzeit.</p>
+    <div class="mock">
+        AI Post Generator Preview
     </div>
-
-    <div class="card">
-        <h3># Hashtags</h3>
-        <p>Maximale Reichweite durch smarte Tags.</p>
-    </div>
-
-    <div class="card">
-        <h3>📅 Planung</h3>
-        <p>Automatischer Content-Kalender.</p>
-    </div>
-
-</div>
-</section>
-
-<section id="stats" class="fade">
-
-<div class="section-title">
-    <h2>Warum ContentAI?</h2>
-</div>
-
-<div class="stats">
-    <div>
-        <h3>90%</h3>
-        <p>Zeit gespart</p>
-    </div>
-
-    <div>
-        <h3>24/7</h3>
-        <p>KI verfügbar</p>
-    </div>
-
-    <div>
-        <h3>10x</h3>
-        <p>Schneller Content</p>
-    </div>
-</div>
 
 </section>
 
-<section id="cta" class="fade">
+<!-- FEATURES -->
+<section id="features">
 
-<div class="cta">
-    <h2>Starte jetzt kostenlos</h2>
-    <p>Erstelle deinen ersten KI-Post in weniger als 30 Sekunden.</p>
-    <a href="#" class="btn">Loslegen</a>
-</div>
+    <h2 style="text-align:center;font-family:Poppins;font-size:2.5rem;margin-bottom:50px;">
+        Powerful Features
+    </h2>
+
+    <div class="features">
+
+        <div class="card">
+            <h3>AI Captions</h3>
+            <p>Generate engaging captions instantly for any platform.</p>
+        </div>
+
+        <div class="card">
+            <h3>Trending Ideas</h3>
+            <p>Find viral content ideas based on real-time trends.</p>
+        </div>
+
+        <div class="card">
+            <h3>Hashtag Engine</h3>
+            <p>Get optimized hashtags for maximum reach.</p>
+        </div>
+
+        <div class="card">
+            <h3>Content Planner</h3>
+            <p>Plan your entire content calendar automatically.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- DEMO -->
+<section id="demo" class="demo">
+
+    <div class="demo-box">
+        <span class="tag">AI Demo</span>
+        <h2 style="font-family:Poppins;">From idea → viral post</h2>
+        <p style="margin-top:10px;color:#475569;">
+            Type a topic and Postly instantly generates a full social media post ready to publish.
+        </p>
+
+        <a class="btn" href="#">Generate Post</a>
+    </div>
+
+    <div class="mock">
+        Screenshot / App Preview Area
+    </div>
+
+</section>
+
+<!-- CTA -->
+<section id="cta">
+
+    <div class="cta">
+        <h2 style="font-family:Poppins;">Start creating better content today</h2>
+        <p>Join thousands of creators using Postly to grow faster.</p>
+
+        <a href="#" class="btn" style="margin-top:25px;background:white;color:#0f172a;">
+            Get started
+        </a>
+    </div>
 
 </section>
 
 <footer>
-© 2026 ContentAI
+    © 2026 Postly – AI Social Media Tool
 </footer>
-
-<script>
-// Scroll Animation
-const elements = document.querySelectorAll('.fade');
-
-const observer = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            entry.target.classList.add('show');
-        }
-    });
-});
-
-elements.forEach(el=>observer.observe(el));
-</script>
 
 </body>
 </html>

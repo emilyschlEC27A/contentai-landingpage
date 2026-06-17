@@ -8,220 +8,56 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
-    font-family:Inter, sans-serif;
-    background: #f5f7ff;
+    font-family:Inter,sans-serif;
+    background:linear-gradient(180deg,#f6f7fb,#eef2ff);
     color:#0f172a;
     overflow-x:hidden;
 }
 
-/* =========================
-   APPLE STYLE BACKGROUND
-========================= */
-.blob{
-    position:fixed;
-    width:700px;
-    height:700px;
-    filter:blur(100px);
-    opacity:0.35;
-    z-index:-1;
-    transition:transform 0.2s ease-out;
-}
+section{padding:140px 10%}
 
-.blob1{background:#6366f1; top:-200px; left:-200px;}
-.blob2{background:#60a5fa; bottom:-200px; right:-200px;}
-.blob3{background:#34d399; top:40%; left:-250px;}
-
-/* =========================
-   NAV (Apple glass style)
-========================= */
-nav{
-    position:fixed;
-    top:0;
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:14px 10%;
-    background:rgba(255,255,255,0.6);
-    backdrop-filter:blur(20px);
-    border-bottom:1px solid rgba(226,232,240,0.7);
-    z-index:1000;
-    transition:0.4s;
-}
-
-nav.scrolled{
-    background:rgba(255,255,255,0.85);
-}
-
-nav a{
-    margin-left:18px;
-    text-decoration:none;
-    color:#475569;
-    font-weight:500;
-    font-size:14px;
-    transition:0.3s;
-}
-
-nav a:hover{color:#6366f1}
-
-/* =========================
-   HERO (Apple Keynote feel)
-========================= */
+/* HERO */
 .hero{
     padding:180px 10% 120px;
     display:grid;
     grid-template-columns:1.2fr 1fr;
     gap:60px;
     align-items:center;
-    position:relative;
 }
 
 .hero h1{
-    font-size:4.2rem;
+    font-size:4rem;
     line-height:1.05;
-    font-weight:800;
     letter-spacing:-2px;
-    transform:translateY(40px);
-    opacity:0;
-    animation:fadeUp 1s ease forwards;
 }
 
-.hero p{
-    margin-top:20px;
-    color:#64748b;
-    font-size:1.15rem;
-    line-height:1.6;
-    opacity:0;
-    animation:fadeUp 1s ease 0.2s forwards;
-}
-
-@keyframes fadeUp{
-    from{opacity:0; transform:translateY(40px)}
-    to{opacity:1; transform:translateY(0)}
-}
-
-/* gradient text */
 .gradient{
     background:linear-gradient(90deg,#6366f1,#60a5fa,#34d399);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
 
-/* =========================
-   BUTTONS (Apple style)
-========================= */
-.buttons{
-    margin-top:28px;
-    display:flex;
-    gap:12px;
-    opacity:0;
-    animation:fadeUp 1s ease 0.4s forwards;
-}
-
+/* BUTTONS */
 .btn{
+    display:inline-block;
     padding:12px 18px;
     border-radius:12px;
     font-weight:600;
-    font-size:14px;
-    transition:0.3s;
-    cursor:pointer;
+    text-decoration:none;
+    margin-right:10px;
 }
 
-.primary{
-    background:linear-gradient(135deg,#6366f1,#4f46e5);
-    color:white;
-    box-shadow:0 20px 40px rgba(99,102,241,0.25);
-}
+.primary{background:#6366f1;color:white}
+.secondary{border:1px solid #e5e7eb;background:white}
 
-.primary:hover{
-    transform:scale(1.05);
-}
-
-.secondary{
-    border:1px solid #e5e7eb;
-    background:white;
-}
-
-/* =========================
-   DASHBOARD (Apple zoom effect)
-========================= */
-.dashboard{
-    background:white;
-    border-radius:24px;
-    height:420px;
-    padding:20px;
-    box-shadow:0 40px 100px rgba(0,0,0,0.10);
-    transform:scale(0.9);
-    opacity:0;
-    animation:zoomIn 1.2s ease 0.2s forwards;
-    transition:transform 0.3s ease;
-}
-
-@keyframes zoomIn{
-    from{transform:scale(0.8); opacity:0}
-    to{transform:scale(1); opacity:1}
-}
-
-/* =========================
-   LOGOS FLOAT
-========================= */
-.logos{
-    display:flex;
-    justify-content:center;
-    gap:50px;
-    margin-top:50px;
-    color:#94a3b8;
-    font-weight:600;
-    animation:fadeUp 1s ease 0.3s forwards;
-    opacity:0;
-}
-
-/* =========================
-   SECTIONS (Apple scroll reveal)
-========================= */
-section{
-    padding:140px 10%;
-}
-
-.section-title h2{
-    font-size:3rem;
-    text-align:center;
-    letter-spacing:-1px;
-}
-
-/* reveal animation */
-.reveal{
-    opacity:0;
-    transform:translateY(60px) scale(0.98);
-    filter:blur(10px);
-    transition:1s cubic-bezier(.2,.8,.2,1);
-}
-
-.reveal.active{
-    opacity:1;
-    transform:translateY(0) scale(1);
-    filter:blur(0);
-}
-
-/* =========================
-   FEATURES (card float)
-========================= */
-.features{
+/* CARDS */
+.grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
     gap:20px;
-    margin-top:50px;
 }
 
 .card{
@@ -229,181 +65,203 @@ section{
     border-radius:18px;
     padding:26px;
     border:1px solid #e5e7eb;
-    transition:0.4s;
-    transform:translateY(20px);
 }
 
-.card:hover{
-    transform:translateY(-12px) scale(1.02);
-    box-shadow:0 30px 60px rgba(0,0,0,0.08);
-}
-
-/* =========================
-   STATS (count + fade)
-========================= */
-.stats{
-    display:flex;
-    justify-content:center;
-    gap:80px;
-    text-align:center;
-}
-
-.stats h3{
-    font-size:3rem;
-    color:#6366f1;
-}
-
-/* =========================
-   CTA (Apple gradient card)
-========================= */
+/* CTA */
 .cta{
-    text-align:center;
-    padding:100px;
-    border-radius:28px;
     background:linear-gradient(135deg,#6366f1,#60a5fa,#34d399);
     color:white;
-    transform:scale(0.95);
-}
-
-/* =========================
-   FOOTER
-========================= */
-footer{
+    border-radius:24px;
     text-align:center;
-    padding:50px;
-    color:#94a3b8;
+    padding:100px;
 }
 
-/* =========================
-   MOBILE
-========================= */
-@media(max-width:900px){
-    .hero{
-        grid-template-columns:1fr;
-        text-align:center;
-    }
-
-    .hero h1{font-size:3rem;}
+/* TABLE */
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:16px;
+    overflow:hidden;
 }
+
+td,th{
+    padding:16px;
+    border-bottom:1px solid #e5e7eb;
+    text-align:left;
+}
+
+/* FADE */
+.fade{
+    opacity:0;
+    transform:translateY(40px);
+    transition:0.8s;
+}
+.fade.show{opacity:1;transform:translateY(0)}
+
 </style>
 </head>
 
 <body>
 
-<div class="blob blob1"></div>
-<div class="blob blob2"></div>
-<div class="blob blob3"></div>
-
-<nav id="nav">
-    <div><b>Postly</b></div>
-    <div>
-        <a href="#features">Features</a>
-        <a href="#pricing">Pricing</a>
-    </div>
-</nav>
-
-<section class="hero">
-    <div>
-        <h1>Content mit <span class="gradient">Apple-Level UI</span></h1>
-        <p>Erstelle Social Media Content mit KI – schneller als je zuvor.</p>
-
-        <div class="buttons">
-            <div class="btn primary">Start</div>
-            <div class="btn secondary">Demo</div>
-        </div>
-    </div>
-
-    <div class="dashboard reveal">
-        📊 AI Dashboard
-    </div>
-</section>
-
-<div class="logos reveal">
-    <div>Airbnb</div>
-    <div>Shopify</div>
-    <div>Notion</div>
-    <div>Canva</div>
+<!-- HERO -->
+<section class="hero fade">
+<div>
+    <h1>Erstelle Content, der <span class="gradient">wirklich wächst</span></h1>
+    <p>Eine KI Plattform für Social Media, Strategie, Planung und automatisierte Inhalte.</p>
+    <a class="btn primary">Kostenlos starten</a>
+    <a class="btn secondary">Demo ansehen</a>
 </div>
-
-<section id="features">
-    <div class="section-title reveal"><h2>Features</h2></div>
-
-    <div class="features">
-        <div class="card reveal">KI Posts</div>
-        <div class="card reveal">Content Ideen</div>
-        <div class="card reveal">Hashtags</div>
-        <div class="card reveal">Planung</div>
-    </div>
+<div class="card">Dashboard Preview</div>
 </section>
 
-<section class="reveal">
-    <div class="stats">
-        <div><h3 class="counter" data-target="12000">0</h3></div>
-        <div><h3 class="counter" data-target="300000">0</h3></div>
-        <div><h3 class="counter" data-target="8000000">0</h3></div>
-    </div>
+<!-- PROBLEM -->
+<section class="fade">
+<h2>Das Problem</h2>
+<div class="grid">
+<div class="card">Zu viel Zeit für Content Planung</div>
+<div class="card">Keine Ideen für Posts</div>
+<div class="card">Unklare Strategie</div>
+<div class="card">Zu wenig Reichweite</div>
+</div>
 </section>
 
-<section class="cta reveal">
-    <h2>Starte jetzt</h2>
-    <p>Keine Kreditkarte nötig</p>
+<!-- LÖSUNG -->
+<section class="fade">
+<h2>Die Lösung</h2>
+<div class="grid">
+<div class="card">KI erstellt Posts in Sekunden</div>
+<div class="card">Automatische Content Ideen</div>
+<div class="card">Hashtag Optimierung</div>
+<div class="card">Planbare Content Strategie</div>
+</div>
 </section>
 
-<footer>© 2026 Postly</footer>
+<!-- FEATURES DEEP DIVE -->
+<section class="fade">
+<h2>Features im Detail</h2>
+<div class="grid">
+<div class="card">Content Generator</div>
+<div class="card">Caption Writer</div>
+<div class="card">Trend Analyse</div>
+<div class="card">Posting Kalender</div>
+<div class="card">Brand Voice KI</div>
+<div class="card">Performance Insights</div>
+</div>
+</section>
+
+<!-- WORKFLOW -->
+<section class="fade">
+<h2>So funktioniert es</h2>
+<div class="grid">
+<div class="card">1. Thema eingeben</div>
+<div class="card">2. KI generiert Content</div>
+<div class="card">3. Bearbeiten oder übernehmen</div>
+<div class="card">4. Planen</div>
+<div class="card">5. Posten & wachsen</div>
+</div>
+</section>
+
+<!-- USE CASES -->
+<section class="fade">
+<h2>Für wen ist es?</h2>
+<div class="grid">
+<div class="card">Content Creator</div>
+<div class="card">Startups</div>
+<div class="card">Agenturen</div>
+<div class="card">E-Commerce Brands</div>
+<div class="card">Freelancer</div>
+</div>
+</section>
+
+<!-- STATISTICS -->
+<section class="fade">
+<h2>Ergebnisse</h2>
+<div class="grid">
+<div class="card"><b>+320%</b><br>mehr Reichweite</div>
+<div class="card"><b>10.000+</b><br>User</div>
+<div class="card"><b>8M+</b><br>generierte Ideen</div>
+</div>
+</section>
+
+<!-- COMPARISON -->
+<section class="fade">
+<h2>Vergleich</h2>
+<table>
+<tr>
+<th>Feature</th>
+<th>Manuell</th>
+<th>Postly</th>
+</tr>
+<tr>
+<td>Content Ideen</td>
+<td>Langsam</td>
+<td>Sofort</td>
+</tr>
+<tr>
+<td>Planung</td>
+<td>Kompliziert</td>
+<td>Automatisch</td>
+</tr>
+<tr>
+<td>Analyse</td>
+<td>Manuell</td>
+<td>KI-basiert</td>
+</tr>
+</table>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="fade">
+<h2>Was Nutzer sagen</h2>
+<div class="grid">
+<div class="card">„Hat meine Arbeit halbiert.“</div>
+<div class="card">„Beste Content Tool überhaupt.“</div>
+<div class="card">„Extrem einfach zu nutzen.“</div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section class="fade">
+<h2>Preise</h2>
+<div class="grid">
+<div class="card">Starter – 0€</div>
+<div class="card">Pro – 19€</div>
+<div class="card">Business – 49€</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="fade">
+<h2>FAQ</h2>
+<div class="grid">
+<div class="card">Kann ich kündigen?</div>
+<div class="card">Wie funktioniert die KI?</div>
+<div class="card">Für wen geeignet?</div>
+<div class="card">Gibt es Support?</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta fade">
+<h2>Starte jetzt</h2>
+<p>Kein Risiko – jederzeit kündbar</p>
+<br>
+<a class="btn secondary">Jetzt starten</a>
+</section>
+
+<footer style="text-align:center;padding:60px;color:#94a3b8">
+© 2026 Postly
+</footer>
 
 <script>
-
-/* =========================
-   SCROLL REVEAL (Apple style)
-========================= */
-const reveals = document.querySelectorAll('.reveal');
-
-const observer = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            entry.target.classList.add('active');
-        }
-    });
+const f=document.querySelectorAll('.fade');
+const obs=new IntersectionObserver(e=>{
+e.forEach(x=>{
+if(x.isIntersecting)x.target.classList.add('show');
+});
 },{threshold:0.15});
-
-reveals.forEach(r=>observer.observe(r));
-
-/* =========================
-   COUNTERS
-========================= */
-const counters = document.querySelectorAll('.counter');
-
-counters.forEach(counter=>{
-    const update = ()=>{
-        const target = +counter.dataset.target;
-        const current = +counter.innerText;
-        const inc = target / 100;
-
-        if(current < target){
-            counter.innerText = Math.ceil(current + inc);
-            setTimeout(update, 20);
-        } else {
-            counter.innerText = target.toLocaleString();
-        }
-    };
-    update();
-});
-
-/* =========================
-   PARALLAX BLOBS (Apple feel)
-========================= */
-window.addEventListener('scroll', ()=>{
-    const y = window.scrollY;
-    document.querySelector('.blob1').style.transform = `translateY(${y * 0.2}px)`;
-    document.querySelector('.blob2').style.transform = `translateY(${y * -0.15}px)`;
-    document.querySelector('.blob3').style.transform = `translateY(${y * 0.1}px)`;
-});
-
-/* nav blur on scroll */
-window.addEventListener('scroll', ()=>{
-    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
-});
-
+f.forEach(e=>obs.observe(e));
 </script>
 
 </body>

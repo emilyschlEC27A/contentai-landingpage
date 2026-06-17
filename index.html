@@ -1,336 +1,333 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ContentAI - KI für Social-Media-Content</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ContentAI - KI Social Media Tool</title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        body{
-            font-family:'Inter', sans-serif;
-            background:#f8fafc;
-            color:#0f172a;
-            line-height:1.6;
-        }
+body{
+    font-family:'Inter', sans-serif;
+    background:#0b0b10;
+    color:white;
+    overflow-x:hidden;
+}
 
-        html{
-            scroll-behavior:smooth;
-        }
+/* NAV */
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 10%;
+    background:rgba(10,10,15,0.7);
+    backdrop-filter:blur(12px);
+    z-index:1000;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
 
-        /* NAV */
-        nav{
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            padding:20px 10%;
-            position:fixed;
-            width:100%;
-            background:rgba(255,255,255,0.8);
-            backdrop-filter:blur(10px);
-            border-bottom:1px solid #e2e8f0;
-            z-index:1000;
-        }
+.logo{
+    font-family:'Poppins', sans-serif;
+    font-size:1.5rem;
+    font-weight:700;
+    color:#ff4fd8;
+}
 
-        .logo{
-            font-size:1.6rem;
-            font-weight:700;
-            color:#6366f1;
-            font-family:'Poppins', sans-serif;
-        }
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
 
-        nav ul{
-            display:flex;
-            list-style:none;
-            gap:25px;
-        }
+nav a{
+    color:#ddd;
+    text-decoration:none;
+    font-weight:500;
+    transition:0.3s;
+}
 
-        nav a{
-            color:#0f172a;
-            text-decoration:none;
-            font-weight:500;
-            transition:0.3s;
-        }
+nav a:hover{
+    color:#ff4fd8;
+}
 
-        nav a:hover{
-            color:#6366f1;
-        }
+/* HERO */
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:120px 10% 80px;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,79,216,0.25), transparent 40%),
+        radial-gradient(circle at 80% 60%, rgba(124,58,237,0.25), transparent 40%),
+        #0b0b10;
+}
 
-        /* HERO */
-        .hero{
-            min-height:100vh;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            text-align:center;
-            padding:120px 10% 80px;
-            background:linear-gradient(135deg,#ffffff,#f1f5f9);
-        }
+.hero h1{
+    font-family:'Poppins', sans-serif;
+    font-size:4rem;
+    line-height:1.1;
+}
 
-        .hero-content h1{
-            font-size:3.8rem;
-            font-family:'Poppins', sans-serif;
-            line-height:1.1;
-            margin-bottom:20px;
-        }
+.hero span{
+    color:#ff4fd8;
+}
 
-        .hero-content span{
-            color:#6366f1;
-        }
+.hero p{
+    margin-top:20px;
+    max-width:650px;
+    color:#b5b5c2;
+    font-size:1.2rem;
+    margin-inline:auto;
+}
 
-        .hero-content p{
-            max-width:700px;
-            margin:auto;
-            font-size:1.2rem;
-            color:#475569;
-        }
+/* BUTTON */
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:14px 34px;
+    border-radius:50px;
+    background:linear-gradient(135deg,#ff4fd8,#7c3aed);
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+    box-shadow:0 10px 30px rgba(255,79,216,0.25);
+}
 
-        /* BUTTON */
-        .btn{
-            display:inline-block;
-            margin-top:30px;
-            padding:14px 32px;
-            background:linear-gradient(135deg,#6366f1,#22c55e);
-            color:white;
-            text-decoration:none;
-            border-radius:50px;
-            font-weight:600;
-            transition:0.3s;
-            box-shadow:0 10px 25px rgba(99,102,241,0.25);
-        }
+.btn:hover{
+    transform:translateY(-3px);
+}
 
-        .btn:hover{
-            transform:translateY(-3px);
-        }
+/* SECTIONS */
+section{
+    padding:100px 10%;
+}
 
-        /* SECTIONS */
-        section{
-            padding:100px 10%;
-        }
+/* SECTION TITLE */
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
 
-        .section-title{
-            text-align:center;
-            margin-bottom:50px;
-        }
+.section-title h2{
+    font-family:'Poppins', sans-serif;
+    font-size:2.6rem;
+    color:#ff4fd8;
+}
 
-        .section-title h2{
-            font-size:2.5rem;
-            font-family:'Poppins', sans-serif;
-            color:#6366f1;
-        }
+/* FEATURES */
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
 
-        /* FEATURES */
-        .features{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-            gap:25px;
-        }
+.card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    padding:28px;
+    border-radius:18px;
+    transition:0.4s;
+    backdrop-filter:blur(10px);
+}
 
-        .card{
-            background:white;
-            padding:30px;
-            border-radius:16px;
-            border:1px solid #e2e8f0;
-            box-shadow:0 10px 30px rgba(15,23,42,0.05);
-            transition:0.3s;
-        }
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#ff4fd8;
+}
 
-        .card:hover{
-            transform:translateY(-6px);
-            box-shadow:0 15px 40px rgba(15,23,42,0.1);
-        }
+.card h3{
+    color:#ff4fd8;
+    margin-bottom:10px;
+    font-family:'Poppins', sans-serif;
+}
 
-        .card h3{
-            margin-bottom:15px;
-            color:#6366f1;
-            font-family:'Poppins', sans-serif;
-        }
+/* STATS */
+.stats{
+    display:flex;
+    justify-content:center;
+    gap:60px;
+    flex-wrap:wrap;
+    text-align:center;
+}
 
-        .card p{
-            color:#475569;
-        }
+.stat h3{
+    font-size:3rem;
+    color:#ff4fd8;
+    font-family:'Poppins', sans-serif;
+}
 
-        /* STATS */
-        .stats{
-            display:flex;
-            justify-content:center;
-            gap:50px;
-            flex-wrap:wrap;
-            text-align:center;
-        }
+/* CTA */
+.cta{
+    text-align:center;
+    padding:80px;
+    border-radius:25px;
+    background:linear-gradient(135deg,#ff4fd8,#7c3aed);
+}
 
-        .stat h3{
-            font-size:3rem;
-            color:#22c55e;
-            font-family:'Poppins', sans-serif;
-        }
+.cta p{
+    margin-top:10px;
+    color:#f1f1f1;
+}
 
-        .stat p{
-            color:#475569;
-        }
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:30px;
+    color:#777;
+}
 
-        /* CTA */
-        .cta{
-            text-align:center;
-            background:linear-gradient(135deg,#6366f1,#22c55e);
-            color:white;
-            border-radius:20px;
-            padding:70px;
-        }
+/* ANIMATION */
+.fade{
+    opacity:0;
+    transform:translateY(40px);
+    transition:0.8s ease;
+}
 
-        .cta p{
-            color:#f1f5f9;
-            margin-top:10px;
-        }
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+}
 
-        .cta .btn{
-            background:white;
-            color:#0f172a;
-            box-shadow:none;
-        }
+/* MOBILE */
+@media(max-width:768px){
+    .hero h1{
+        font-size:2.6rem;
+    }
 
-        /* FOOTER */
-        footer{
-            text-align:center;
-            padding:30px;
-            background:#0f172a;
-            color:#94a3b8;
-        }
+    nav ul{
+        gap:15px;
+        font-size:0.9rem;
+    }
 
-        /* MOBILE */
-        @media(max-width:768px){
-
-            .hero-content h1{
-                font-size:2.4rem;
-            }
-
-            nav{
-                flex-direction:column;
-                gap:15px;
-            }
-
-            nav ul{
-                flex-wrap:wrap;
-                justify-content:center;
-                gap:15px;
-            }
-
-            section{
-                padding:70px 6%;
-            }
-        }
-    </style>
+    section{
+        padding:70px 6%;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <nav>
     <div class="logo">ContentAI</div>
-
     <ul>
         <li><a href="#features">Features</a></li>
-        <li><a href="#vorteile">Vorteile</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#stats">Vorteile</a></li>
+        <li><a href="#cta">Start</a></li>
     </ul>
 </nav>
 
-<section class="hero">
-    <div class="hero-content">
-        <h1>Erstelle Social-Media-Content mit <span>KI</span></h1>
-
+<section class="hero fade">
+    <div>
+        <h1>KI für <span>viralen</span> Social Media Content</h1>
         <p>
-            ContentAI generiert in Sekunden professionelle Beiträge,
-            Captions, Hashtags und Content-Ideen für Instagram,
-            TikTok, LinkedIn und Facebook.
+            Erstelle Posts, Captions und Ideen in Sekunden – mit modernster KI-Technologie für Creator & Businesses.
         </p>
-
-        <a href="#features" class="btn">Kostenlos testen</a>
+        <a href="#features" class="btn">Jetzt starten</a>
     </div>
 </section>
 
-<section id="features">
+<section id="features" class="fade">
 
-    <div class="section-title">
-        <h2>Unsere Features</h2>
+<div class="section-title">
+    <h2>Features</h2>
+</div>
+
+<div class="features">
+
+    <div class="card">
+        <h3>✍ KI Content</h3>
+        <p>Automatische Erstellung von Posts und Ideen.</p>
     </div>
 
-    <div class="features">
-
-        <div class="card">
-            <h3>✍ KI-Textgenerator</h3>
-            <p>Erstellt automatisch professionelle Posts für alle Plattformen.</p>
-        </div>
-
-        <div class="card">
-            <h3>📈 Trendanalyse</h3>
-            <p>Erkennt aktuelle Trends und relevante Themen für deine Zielgruppe.</p>
-        </div>
-
-        <div class="card">
-            <h3>#️⃣ Hashtag-Generator</h3>
-            <p>Generiert passende Hashtags für maximale Reichweite.</p>
-        </div>
-
-        <div class="card">
-            <h3>📅 Content-Planung</h3>
-            <p>Plane Beiträge automatisch für Wochen oder Monate im Voraus.</p>
-        </div>
-
+    <div class="card">
+        <h3>📈 Trends</h3>
+        <p>Erkennt virale Themen in Echtzeit.</p>
     </div>
+
+    <div class="card">
+        <h3># Hashtags</h3>
+        <p>Maximale Reichweite durch smarte Tags.</p>
+    </div>
+
+    <div class="card">
+        <h3>📅 Planung</h3>
+        <p>Automatischer Content-Kalender.</p>
+    </div>
+
+</div>
+</section>
+
+<section id="stats" class="fade">
+
+<div class="section-title">
+    <h2>Warum ContentAI?</h2>
+</div>
+
+<div class="stats">
+    <div>
+        <h3>90%</h3>
+        <p>Zeit gespart</p>
+    </div>
+
+    <div>
+        <h3>24/7</h3>
+        <p>KI verfügbar</p>
+    </div>
+
+    <div>
+        <h3>10x</h3>
+        <p>Schneller Content</p>
+    </div>
+</div>
 
 </section>
 
-<section id="vorteile">
+<section id="cta" class="fade">
 
-    <div class="section-title">
-        <h2>Warum ContentAI?</h2>
-    </div>
-
-    <div class="stats">
-
-        <div class="stat">
-            <h3>90%</h3>
-            <p>Zeitersparnis</p>
-        </div>
-
-        <div class="stat">
-            <h3>24/7</h3>
-            <p>Verfügbarkeit</p>
-        </div>
-
-        <div class="stat">
-            <h3>10x</h3>
-            <p>Schnellere Content-Erstellung</p>
-        </div>
-
-    </div>
-
-</section>
-
-<section id="kontakt">
-
-    <div class="cta">
-        <h2>Bereit für mehr Reichweite?</h2>
-        <p>Nutze KI und erstelle hochwertige Inhalte in Sekunden.</p>
-
-        <a href="#" class="btn">Demo anfordern</a>
-    </div>
+<div class="cta">
+    <h2>Starte jetzt kostenlos</h2>
+    <p>Erstelle deinen ersten KI-Post in weniger als 30 Sekunden.</p>
+    <a href="#" class="btn">Loslegen</a>
+</div>
 
 </section>
 
 <footer>
-    © 2026 ContentAI | KI für Social-Media-Content-Erstellung
+© 2026 ContentAI
 </footer>
+
+<script>
+// Scroll Animation
+const elements = document.querySelectorAll('.fade');
+
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+});
+
+elements.forEach(el=>observer.observe(el));
+</script>
 
 </body>
 </html>

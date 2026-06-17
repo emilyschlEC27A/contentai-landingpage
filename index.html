@@ -3,12 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Postly – KI für Social Media Content</title>
+<title>Postly – KI Social Media Tool</title>
 
-<!-- Font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -18,23 +17,22 @@
 }
 
 body{
-    font-family:'Plus Jakarta Sans', sans-serif;
-    background:#f7f8fc;
-    color:#1e293b;
-    overflow-x:hidden;
+    font-family:Inter, sans-serif;
+    background:#f6f7fb;
+    color:#0f172a;
 }
 
-/* ===== NAV ===== */
+/* NAV */
 nav{
     position:fixed;
     top:0;
     width:100%;
-    background:rgba(255,255,255,0.8);
-    backdrop-filter:blur(14px);
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:16px 10%;
+    padding:18px 10%;
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(12px);
     border-bottom:1px solid #e5e7eb;
     z-index:1000;
 }
@@ -44,119 +42,127 @@ nav{
     align-items:center;
     gap:10px;
     font-weight:700;
-    font-size:1.4rem;
 }
 
-.logo-box{
-    width:28px;
-    height:28px;
-    border-radius:8px;
-    background:linear-gradient(135deg,#a5b4fc,#c4b5fd,#bae6fd);
-    animation:float 4s ease-in-out infinite;
+.logo-dot{
+    width:14px;
+    height:14px;
+    border-radius:4px;
+    background:linear-gradient(135deg,#a5b4fc,#60a5fa);
 }
 
-/* ===== HERO ===== */
+nav a{
+    margin-left:18px;
+    text-decoration:none;
+    color:#475569;
+    font-weight:500;
+    font-size:14px;
+}
+
+nav a:hover{
+    color:#6366f1;
+}
+
+/* HERO */
 .hero{
     padding:140px 10% 80px;
     display:grid;
-    grid-template-columns:1.2fr 1fr;
+    grid-template-columns:1.1fr 1fr;
     gap:60px;
     align-items:center;
 }
 
 .hero h1{
-    font-size:3.6rem;
+    font-size:3.5rem;
     line-height:1.1;
-    font-weight:700;
 }
 
-.hero span{
-    background:linear-gradient(135deg,#a5b4fc,#60a5fa,#c4b5fd);
+.gradient{
+    background:linear-gradient(90deg,#6366f1,#60a5fa);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
 
 .hero p{
-    margin-top:18px;
-    font-size:1.2rem;
-    color:#475569;
+    margin-top:20px;
+    color:#64748b;
+    font-size:1.1rem;
     line-height:1.6;
 }
 
-/* BUTTON */
-.btn{
-    display:inline-block;
+.buttons{
     margin-top:25px;
-    padding:14px 26px;
-    border-radius:14px;
-    background:linear-gradient(135deg,#a5b4fc,#93c5fd);
-    color:#0f172a;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:12px 18px;
+    border-radius:10px;
     font-weight:600;
     text-decoration:none;
-    transition:0.3s;
-    box-shadow:0 10px 30px rgba(165,180,252,0.3);
+    font-size:14px;
 }
 
-.btn:hover{
-    transform:translateY(-3px);
+.primary{
+    background:#6366f1;
+    color:white;
 }
 
-/* HERO VISUAL */
-.mock{
-    height:380px;
-    border-radius:20px;
-    background:linear-gradient(135deg,#e0e7ff,#dbeafe,#f0f9ff);
+.secondary{
     border:1px solid #e5e7eb;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:600;
-    color:#64748b;
-    animation:float 6s ease-in-out infinite;
+    color:#0f172a;
+    background:white;
 }
 
-/* ===== SECTIONS ===== */
+/* DASHBOARD MOCK */
+.dashboard{
+    background:white;
+    border-radius:18px;
+    border:1px solid #e5e7eb;
+    height:420px;
+    padding:20px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.06);
+}
+
+/* LOGOS */
+.logos{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+    margin-top:40px;
+    color:#94a3b8;
+    font-weight:600;
+}
+
+/* FEATURES */
 section{
     padding:90px 10%;
 }
 
-/* TITLE */
-.title{
+.section-title{
     text-align:center;
     margin-bottom:50px;
 }
 
-.title h2{
+.section-title h2{
     font-size:2.4rem;
-    font-weight:700;
 }
 
-/* FEATURES */
 .features{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:22px;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
 }
 
 .card{
     background:white;
-    border-radius:18px;
-    padding:26px;
     border:1px solid #e5e7eb;
+    border-radius:14px;
+    padding:22px;
     transition:0.3s;
-    position:relative;
-    overflow:hidden;
-}
-
-.card::before{
-    content:"";
-    position:absolute;
-    top:-50%;
-    left:-50%;
-    width:200%;
-    height:200%;
-    background:radial-gradient(circle,rgba(165,180,252,0.25),transparent 60%);
-    transform:rotate(25deg);
 }
 
 .card:hover{
@@ -164,22 +170,25 @@ section{
 }
 
 .card h3{
-    margin-bottom:10px;
+    margin-bottom:8px;
 }
 
-/* INFO SECTION */
-.info{
+/* VIDEO */
+.video{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:50px;
     align-items:center;
 }
 
-.soft-box{
-    background:linear-gradient(135deg,#f0f9ff,#eef2ff);
-    padding:40px;
-    border-radius:20px;
-    border:1px solid #e5e7eb;
+.video-box{
+    height:320px;
+    background:linear-gradient(135deg,#e0e7ff,#dbeafe);
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#64748b;
 }
 
 /* STATS */
@@ -187,44 +196,68 @@ section{
     display:flex;
     justify-content:center;
     gap:60px;
-    flex-wrap:wrap;
     text-align:center;
 }
 
 .stats h3{
     font-size:2.5rem;
-    background:linear-gradient(135deg,#a5b4fc,#60a5fa);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+    color:#6366f1;
+}
+
+/* TESTIMONIALS */
+.testimonials{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+
+.quote{
+    background:white;
+    border:1px solid #e5e7eb;
+    padding:20px;
+    border-radius:14px;
+}
+
+/* PRICING */
+.pricing{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+
+.price{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:14px;
+    padding:25px;
+    text-align:center;
+}
+
+.price h3{
+    margin-bottom:10px;
 }
 
 /* CTA */
 .cta{
     text-align:center;
-    padding:80px;
-    border-radius:25px;
-    background:linear-gradient(135deg,#e0e7ff,#dbeafe,#f0f9ff);
-    border:1px solid #e5e7eb;
+    padding:70px;
+    background:#6366f1;
+    color:white;
+    border-radius:18px;
 }
 
 /* FOOTER */
 footer{
     text-align:center;
     padding:30px;
-    color:#64748b;
+    color:#94a3b8;
 }
 
-/* ANIMATIONS */
-@keyframes float{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-10px);}
-}
-
-/* SCROLL ANIMATION */
+/* ANIMATION */
 .fade{
     opacity:0;
     transform:translateY(40px);
-    transition:0.8s ease;
+    transition:0.7s;
 }
 
 .fade.show{
@@ -239,12 +272,12 @@ footer{
         text-align:center;
     }
 
-    .info{
+    .video{
         grid-template-columns:1fr;
     }
 
-    .hero h1{
-        font-size:2.6rem;
+    .stats{
+        flex-wrap:wrap;
     }
 }
 </style>
@@ -255,75 +288,91 @@ footer{
 <!-- NAV -->
 <nav>
     <div class="logo">
-        <div class="logo-box"></div>
+        <div class="logo-dot"></div>
         Postly
+    </div>
+
+    <div>
+        <a href="#features">Funktionen</a>
+        <a href="#video">Dashboard</a>
+        <a href="#pricing">Preise</a>
+        <a href="#about">Über uns</a>
+        <a href="#contact">Kontakt</a>
+        <a href="#">Blog</a>
     </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero fade">
     <div>
-        <h1>Erstelle <span>Social Media Content</span> mit KI</h1>
+        <h1>Erstelle <span class="gradient">Social Media Content</span> mit KI</h1>
         <p>
-            Postly hilft dir dabei, in Sekunden professionelle Beiträge, Ideen und Captions für Instagram, TikTok und LinkedIn zu erstellen.
+            Postly hilft dir dabei, in Sekunden Posts, Ideen und Captions für Instagram, TikTok und LinkedIn zu erstellen.
         </p>
-        <a class="btn" href="#">Kostenlos starten</a>
+
+        <div class="buttons">
+            <a class="btn primary" href="#">Kostenlos starten</a>
+            <a class="btn secondary" href="#">Live Demo ansehen</a>
+        </div>
     </div>
 
-    <div class="mock">
-        KI Vorschau / Dashboard
+    <div class="dashboard">
+        📊 Dashboard Preview (UI Mock)
     </div>
 </section>
 
-<!-- FEATURES -->
-<section class="fade">
+<!-- LOGOS -->
+<div class="logos">
+    <div>airbnb</div>
+    <div>shopify</div>
+    <div>notion</div>
+    <div>canva</div>
+    <div>adobe</div>
+</div>
 
-<div class="title">
-    <h2>Funktionen</h2>
+<!-- FEATURES -->
+<section id="features" class="fade">
+
+<div class="section-title">
+    <h2>Alles, was du brauchst</h2>
 </div>
 
 <div class="features">
 
     <div class="card">
-        <h3>✍️ KI Texte</h3>
-        <p>Erstelle komplette Posts automatisch.</p>
+        <h3>KI Posts</h3>
+        <p>Automatisch generierte Social Media Inhalte.</p>
     </div>
 
     <div class="card">
-        <h3>📈 Trends</h3>
-        <p>Erkenne virale Inhalte frühzeitig.</p>
+        <h3>Trends</h3>
+        <p>Erkenne virale Themen frühzeitig.</p>
     </div>
 
     <div class="card">
-        <h3>#️⃣ Hashtags</h3>
-        <p>Optimierte Reichweite durch KI.</p>
+        <h3>Hashtags</h3>
+        <p>Mehr Reichweite durch KI Optimierung.</p>
     </div>
 
     <div class="card">
-        <h3>📅 Planung</h3>
-        <p>Automatischer Content Kalender.</p>
+        <h3>Planung</h3>
+        <p>Content Kalender & Planungssystem.</p>
     </div>
 
 </div>
-
 </section>
 
-<!-- INFO -->
-<section class="info fade">
+<!-- VIDEO -->
+<section id="video" class="video fade">
 
-<div class="soft-box">
-    <h2>Warum Postly?</h2>
-    <p style="margin-top:10px;color:#475569;">
-        Moderne Creator brauchen Geschwindigkeit. Postly reduziert deine Content-Erstellung von Stunden auf Sekunden.
-    </p>
+<div class="video-box">
+    ▶ Video Demo / Preview
 </div>
 
-<div class="soft-box">
-    <h2>Wie es funktioniert</h2>
-    <p style="margin-top:10px;color:#475569;">
-        1. Thema eingeben<br>
-        2. KI generiert Content<br>
-        3. Post direkt verwenden
+<div>
+    <h2>Sieh dir Postly in Aktion an</h2>
+    <p style="color:#64748b;margin-top:10px;">
+        Erstelle Content in weniger als 60 Sekunden mit KI.
     </p>
 </div>
 
@@ -333,20 +382,54 @@ footer{
 <section class="fade">
 
 <div class="stats">
-    <div>
-        <h3>90%</h3>
-        <p>Zeitersparnis</p>
-    </div>
+    <div><h3>10.000+</h3><p>Nutzer</p></div>
+    <div><h3>250k</h3><p>Posts</p></div>
+    <div><h3>5 Mio</h3><p>Ideen</p></div>
+</div>
 
-    <div>
-        <h3>24/7</h3>
-        <p>Verfügbar</p>
-    </div>
+</section>
 
-    <div>
-        <h3>10x</h3>
-        <p>Schneller</p>
-    </div>
+<!-- TESTIMONIALS -->
+<section class="fade">
+
+<div class="section-title">
+    <h2>Was Nutzer sagen</h2>
+</div>
+
+<div class="testimonials">
+
+    <div class="quote">„Extrem hilfreich für Content Creation!“</div>
+    <div class="quote">„Spart mir täglich Stunden Arbeit.“</div>
+    <div class="quote">„Beste KI für Social Media.“</div>
+
+</div>
+
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="fade">
+
+<div class="section-title">
+    <h2>Preise</h2>
+</div>
+
+<div class="pricing">
+
+<div class="price">
+    <h3>Starter</h3>
+    <p>0€</p>
+</div>
+
+<div class="price">
+    <h3>Pro</h3>
+    <p>19€</p>
+</div>
+
+<div class="price">
+    <h3>Business</h3>
+    <p>49€</p>
+</div>
+
 </div>
 
 </section>
@@ -355,15 +438,14 @@ footer{
 <section class="fade">
 
 <div class="cta">
-    <h2>Starte jetzt kostenlos</h2>
-    <p>Keine Kreditkarte erforderlich • Jederzeit kündbar</p>
-    <a class="btn" href="#">Loslegen</a>
+    <h2>Starte jetzt mit Postly</h2>
+    <p>Keine Kreditkarte erforderlich</p>
 </div>
 
 </section>
 
 <footer>
-© 2026 Postly – AI Social Media Tool
+© 2026 Postly
 </footer>
 
 <script>
@@ -371,9 +453,7 @@ const els = document.querySelectorAll('.fade');
 
 const obs = new IntersectionObserver(entries=>{
     entries.forEach(e=>{
-        if(e.isIntersecting){
-            e.target.classList.add('show');
-        }
+        if(e.isIntersecting) e.target.classList.add('show');
     });
 });
 

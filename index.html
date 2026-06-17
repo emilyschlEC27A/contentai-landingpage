@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Postly – KI Social Media Tool</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
@@ -15,33 +14,37 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     font-family:Inter, sans-serif;
-    background:#f6f7fb;
+    background: #f5f7ff;
     color:#0f172a;
     overflow-x:hidden;
 }
 
-/* BACKGROUND BLOBS */
+/* =========================
+   APPLE STYLE BACKGROUND
+========================= */
 .blob{
     position:fixed;
-    width:500px;
-    height:500px;
-    filter:blur(80px);
-    opacity:0.4;
+    width:700px;
+    height:700px;
+    filter:blur(100px);
+    opacity:0.35;
     z-index:-1;
-    animation:float 10s ease-in-out infinite;
+    transition:transform 0.2s ease-out;
 }
 
-.blob1{background:#6366f1; top:-120px; left:-120px;}
-.blob2{background:#60a5fa; bottom:-120px; right:-120px;}
+.blob1{background:#6366f1; top:-200px; left:-200px;}
+.blob2{background:#60a5fa; bottom:-200px; right:-200px;}
+.blob3{background:#34d399; top:40%; left:-250px;}
 
-@keyframes float{
-    0%,100%{transform:translateY(0px)}
-    50%{transform:translateY(40px)}
-}
-
-/* NAV */
+/* =========================
+   NAV (Apple glass style)
+========================= */
 nav{
     position:fixed;
     top:0;
@@ -49,25 +52,16 @@ nav{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:16px 10%;
+    padding:14px 10%;
     background:rgba(255,255,255,0.6);
-    backdrop-filter:blur(14px);
-    border-bottom:1px solid #e5e7eb;
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(226,232,240,0.7);
     z-index:1000;
+    transition:0.4s;
 }
 
-.logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-weight:800;
-}
-
-.logo-dot{
-    width:12px;
-    height:12px;
-    border-radius:4px;
-    background:linear-gradient(135deg,#6366f1,#60a5fa);
+nav.scrolled{
+    background:rgba(255,255,255,0.85);
 }
 
 nav a{
@@ -76,159 +70,177 @@ nav a{
     color:#475569;
     font-weight:500;
     font-size:14px;
+    transition:0.3s;
 }
 
 nav a:hover{color:#6366f1}
 
-/* HERO */
+/* =========================
+   HERO (Apple Keynote feel)
+========================= */
 .hero{
-    padding:150px 10% 90px;
+    padding:180px 10% 120px;
     display:grid;
-    grid-template-columns:1.1fr 1fr;
+    grid-template-columns:1.2fr 1fr;
     gap:60px;
     align-items:center;
+    position:relative;
 }
 
 .hero h1{
-    font-size:4rem;
+    font-size:4.2rem;
     line-height:1.05;
     font-weight:800;
-}
-
-.gradient{
-    background:linear-gradient(90deg,#6366f1,#60a5fa);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+    letter-spacing:-2px;
+    transform:translateY(40px);
+    opacity:0;
+    animation:fadeUp 1s ease forwards;
 }
 
 .hero p{
     margin-top:20px;
     color:#64748b;
-    font-size:1.1rem;
+    font-size:1.15rem;
     line-height:1.6;
+    opacity:0;
+    animation:fadeUp 1s ease 0.2s forwards;
 }
 
-/* BUTTONS */
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(40px)}
+    to{opacity:1; transform:translateY(0)}
+}
+
+/* gradient text */
+.gradient{
+    background:linear-gradient(90deg,#6366f1,#60a5fa,#34d399);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* =========================
+   BUTTONS (Apple style)
+========================= */
 .buttons{
-    margin-top:25px;
+    margin-top:28px;
     display:flex;
     gap:12px;
+    opacity:0;
+    animation:fadeUp 1s ease 0.4s forwards;
 }
 
 .btn{
     padding:12px 18px;
     border-radius:12px;
     font-weight:600;
-    text-decoration:none;
     font-size:14px;
     transition:0.3s;
+    cursor:pointer;
 }
 
 .primary{
-    background:#6366f1;
+    background:linear-gradient(135deg,#6366f1,#4f46e5);
     color:white;
-    box-shadow:0 10px 20px rgba(99,102,241,0.3);
+    box-shadow:0 20px 40px rgba(99,102,241,0.25);
 }
 
-.primary:hover{transform:translateY(-2px)}
+.primary:hover{
+    transform:scale(1.05);
+}
 
 .secondary{
     border:1px solid #e5e7eb;
-    color:#0f172a;
     background:white;
 }
 
-/* DASHBOARD */
+/* =========================
+   DASHBOARD (Apple zoom effect)
+========================= */
 .dashboard{
     background:white;
-    border-radius:18px;
-    border:1px solid #e5e7eb;
+    border-radius:24px;
     height:420px;
     padding:20px;
-    box-shadow:0 30px 80px rgba(0,0,0,0.08);
-    position:relative;
-    overflow:hidden;
+    box-shadow:0 40px 100px rgba(0,0,0,0.10);
+    transform:scale(0.9);
+    opacity:0;
+    animation:zoomIn 1.2s ease 0.2s forwards;
+    transition:transform 0.3s ease;
 }
 
-.dashboard::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(120deg,transparent,rgba(99,102,241,0.05),transparent);
-    animation:shine 4s infinite;
+@keyframes zoomIn{
+    from{transform:scale(0.8); opacity:0}
+    to{transform:scale(1); opacity:1}
 }
 
-@keyframes shine{
-    0%{transform:translateX(-100%)}
-    100%{transform:translateX(100%)}
-}
-
-/* LOGOS */
+/* =========================
+   LOGOS FLOAT
+========================= */
 .logos{
     display:flex;
     justify-content:center;
     gap:50px;
-    flex-wrap:wrap;
-    margin-top:40px;
+    margin-top:50px;
     color:#94a3b8;
     font-weight:600;
+    animation:fadeUp 1s ease 0.3s forwards;
+    opacity:0;
 }
 
-/* SECTIONS */
+/* =========================
+   SECTIONS (Apple scroll reveal)
+========================= */
 section{
-    padding:100px 10%;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:50px;
+    padding:140px 10%;
 }
 
 .section-title h2{
-    font-size:2.6rem;
-    font-weight:800;
+    font-size:3rem;
+    text-align:center;
+    letter-spacing:-1px;
 }
 
-/* FEATURES */
+/* reveal animation */
+.reveal{
+    opacity:0;
+    transform:translateY(60px) scale(0.98);
+    filter:blur(10px);
+    transition:1s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    filter:blur(0);
+}
+
+/* =========================
+   FEATURES (card float)
+========================= */
 .features{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
     gap:20px;
+    margin-top:50px;
 }
 
 .card{
     background:white;
+    border-radius:18px;
+    padding:26px;
     border:1px solid #e5e7eb;
-    border-radius:16px;
-    padding:24px;
-    transition:0.3s;
+    transition:0.4s;
+    transform:translateY(20px);
 }
 
 .card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 20px 40px rgba(0,0,0,0.08);
+    transform:translateY(-12px) scale(1.02);
+    box-shadow:0 30px 60px rgba(0,0,0,0.08);
 }
 
-/* VIDEO */
-.video{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
-    align-items:center;
-}
-
-.video-box{
-    height:340px;
-    border-radius:18px;
-    background:linear-gradient(135deg,#e0e7ff,#dbeafe);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:600;
-    color:#64748b;
-}
-
-/* STATS */
+/* =========================
+   STATS (count + fade)
+========================= */
 .stats{
     display:flex;
     justify-content:center;
@@ -241,107 +253,37 @@ section{
     color:#6366f1;
 }
 
-/* TESTIMONIALS */
-.testimonials{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:20px;
-}
-
-.quote{
-    background:white;
-    border:1px solid #e5e7eb;
-    padding:22px;
-    border-radius:16px;
-}
-
-/* PRICING */
-.pricing{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:20px;
-}
-
-.price{
-    background:white;
-    border:2px solid #e5e7eb;
-    border-radius:16px;
-    padding:28px;
-    text-align:center;
-    transition:0.3s;
-}
-
-.price:hover{
-    border-color:#6366f1;
-    transform:scale(1.03);
-}
-
-.price h3{
-    margin-bottom:10px;
-}
-
-/* CTA */
+/* =========================
+   CTA (Apple gradient card)
+========================= */
 .cta{
     text-align:center;
-    padding:80px;
-    background:linear-gradient(135deg,#6366f1,#60a5fa);
+    padding:100px;
+    border-radius:28px;
+    background:linear-gradient(135deg,#6366f1,#60a5fa,#34d399);
     color:white;
-    border-radius:20px;
+    transform:scale(0.95);
 }
 
-/* FAQ */
-.faq{
-    max-width:800px;
-    margin:auto;
-}
-
-.faq-item{
-    background:white;
-    border:1px solid #e5e7eb;
-    margin-bottom:10px;
-    border-radius:12px;
-    padding:18px;
-}
-
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 footer{
     text-align:center;
-    padding:40px;
+    padding:50px;
     color:#94a3b8;
 }
 
-/* ANIMATION */
-.fade{
-    opacity:0;
-    transform:translateY(40px);
-    transition:0.8s;
-}
-
-.fade.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-/* COUNTERS */
-.counter{
-    font-weight:800;
-}
-
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 @media(max-width:900px){
     .hero{
         grid-template-columns:1fr;
         text-align:center;
     }
 
-    .video{
-        grid-template-columns:1fr;
-    }
-
-    .stats{
-        flex-wrap:wrap;
-        gap:40px;
-    }
+    .hero h1{font-size:3rem;}
 }
 </style>
 </head>
@@ -350,103 +292,90 @@ footer{
 
 <div class="blob blob1"></div>
 <div class="blob blob2"></div>
+<div class="blob blob3"></div>
 
-<nav>
-    <div class="logo">
-        <div class="logo-dot"></div>
-        Postly
-    </div>
+<nav id="nav">
+    <div><b>Postly</b></div>
     <div>
-        <a href="#features">Funktionen</a>
-        <a href="#video">Demo</a>
-        <a href="#pricing">Preise</a>
-        <a href="#faq">FAQ</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
     </div>
 </nav>
 
-<section class="hero fade">
+<section class="hero">
     <div>
-        <h1>Erstelle <span class="gradient">Content, der wirkt</span> mit KI</h1>
-        <p>Generiere Posts, Ideen und Captions in Sekunden für Instagram, TikTok und LinkedIn.</p>
+        <h1>Content mit <span class="gradient">Apple-Level UI</span></h1>
+        <p>Erstelle Social Media Content mit KI – schneller als je zuvor.</p>
 
         <div class="buttons">
-            <a class="btn primary" href="#">Kostenlos starten</a>
-            <a class="btn secondary" href="#">Demo ansehen</a>
+            <div class="btn primary">Start</div>
+            <div class="btn secondary">Demo</div>
         </div>
     </div>
 
-    <div class="dashboard">
-        📊 KI Dashboard Preview
+    <div class="dashboard reveal">
+        📊 AI Dashboard
     </div>
 </section>
 
-<div class="logos">
-    <div>airbnb</div><div>shopify</div><div>notion</div><div>canva</div><div>adobe</div>
+<div class="logos reveal">
+    <div>Airbnb</div>
+    <div>Shopify</div>
+    <div>Notion</div>
+    <div>Canva</div>
 </div>
 
-<section id="features" class="fade">
-<div class="section-title"><h2>Alles was du brauchst</h2></div>
+<section id="features">
+    <div class="section-title reveal"><h2>Features</h2></div>
 
-<div class="features">
-<div class="card">KI Posts</div>
-<div class="card">Content Ideen</div>
-<div class="card">Hashtag Optimierung</div>
-<div class="card">Content Kalender</div>
-</div>
+    <div class="features">
+        <div class="card reveal">KI Posts</div>
+        <div class="card reveal">Content Ideen</div>
+        <div class="card reveal">Hashtags</div>
+        <div class="card reveal">Planung</div>
+    </div>
 </section>
 
-<section class="fade">
-<div class="stats">
-<div><h3 class="counter" data-target="10000">0</h3><p>Nutzer</p></div>
-<div><h3 class="counter" data-target="250000">0</h3><p>Posts</p></div>
-<div><h3 class="counter" data-target="5000000">0</h3><p>Ideen</p></div>
-</div>
+<section class="reveal">
+    <div class="stats">
+        <div><h3 class="counter" data-target="12000">0</h3></div>
+        <div><h3 class="counter" data-target="300000">0</h3></div>
+        <div><h3 class="counter" data-target="8000000">0</h3></div>
+    </div>
 </section>
 
-<section id="pricing" class="fade">
-<div class="section-title"><h2>Preise</h2></div>
-
-<div class="pricing">
-<div class="price"><h3>Starter</h3><p>0€</p></div>
-<div class="price"><h3>Pro</h3><p>19€</p></div>
-<div class="price"><h3>Business</h3><p>49€</p></div>
-</div>
-</section>
-
-<section id="faq" class="fade">
-<div class="section-title"><h2>FAQ</h2></div>
-
-<div class="faq">
-<div class="faq-item">Wie funktioniert KI Content?</div>
-<div class="faq-item">Kann ich jederzeit kündigen?</div>
-<div class="faq-item">Für wen ist Postly?</div>
-</div>
-</section>
-
-<section class="fade">
-<div class="cta">
-<h2>Starte jetzt mit Postly</h2>
-<p>Keine Kreditkarte nötig</p>
-</div>
+<section class="cta reveal">
+    <h2>Starte jetzt</h2>
+    <p>Keine Kreditkarte nötig</p>
 </section>
 
 <footer>© 2026 Postly</footer>
 
 <script>
-// scroll animation
-const els = document.querySelectorAll('.fade');
-const obs = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-        if(e.isIntersecting) e.target.classList.add('show');
-    });
-});
-els.forEach(el=>obs.observe(el));
 
-// counters
+/* =========================
+   SCROLL REVEAL (Apple style)
+========================= */
+const reveals = document.querySelectorAll('.reveal');
+
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('active');
+        }
+    });
+},{threshold:0.15});
+
+reveals.forEach(r=>observer.observe(r));
+
+/* =========================
+   COUNTERS
+========================= */
 const counters = document.querySelectorAll('.counter');
+
 counters.forEach(counter=>{
     const update = ()=>{
-        const target = +counter.getAttribute('data-target');
+        const target = +counter.dataset.target;
         const current = +counter.innerText;
         const inc = target / 100;
 
@@ -456,9 +385,25 @@ counters.forEach(counter=>{
         } else {
             counter.innerText = target.toLocaleString();
         }
-    }
+    };
     update();
 });
+
+/* =========================
+   PARALLAX BLOBS (Apple feel)
+========================= */
+window.addEventListener('scroll', ()=>{
+    const y = window.scrollY;
+    document.querySelector('.blob1').style.transform = `translateY(${y * 0.2}px)`;
+    document.querySelector('.blob2').style.transform = `translateY(${y * -0.15}px)`;
+    document.querySelector('.blob3').style.transform = `translateY(${y * 0.1}px)`;
+});
+
+/* nav blur on scroll */
+window.addEventListener('scroll', ()=>{
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+});
+
 </script>
 
 </body>

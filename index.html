@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -6,20 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ContentAI - KI für Social-Media-Content</title>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
         *{
             margin:0;
             padding:0;
             box-sizing:border-box;
-            font-family:Arial, Helvetica, sans-serif;
         }
 
         body{
-            background:#0f172a;
-            color:white;
+            font-family:'Inter', sans-serif;
+            background:#f8fafc;
+            color:#0f172a;
             line-height:1.6;
         }
 
+        html{
+            scroll-behavior:smooth;
+        }
+
+        /* NAV */
         nav{
             display:flex;
             justify-content:space-between;
@@ -27,14 +36,17 @@
             padding:20px 10%;
             position:fixed;
             width:100%;
-            background:rgba(15,23,42,0.95);
+            background:rgba(255,255,255,0.8);
             backdrop-filter:blur(10px);
+            border-bottom:1px solid #e2e8f0;
+            z-index:1000;
         }
 
         .logo{
-            font-size:1.8rem;
-            font-weight:bold;
-            color:#38bdf8;
+            font-size:1.6rem;
+            font-weight:700;
+            color:#6366f1;
+            font-family:'Poppins', sans-serif;
         }
 
         nav ul{
@@ -44,58 +56,64 @@
         }
 
         nav a{
-            color:white;
+            color:#0f172a;
             text-decoration:none;
+            font-weight:500;
             transition:0.3s;
         }
 
         nav a:hover{
-            color:#38bdf8;
+            color:#6366f1;
         }
 
+        /* HERO */
         .hero{
             min-height:100vh;
             display:flex;
             justify-content:center;
             align-items:center;
             text-align:center;
-            padding:0 10%;
-            background:linear-gradient(135deg,#0f172a,#1e293b);
+            padding:120px 10% 80px;
+            background:linear-gradient(135deg,#ffffff,#f1f5f9);
         }
 
         .hero-content h1{
-            font-size:4rem;
+            font-size:3.8rem;
+            font-family:'Poppins', sans-serif;
+            line-height:1.1;
             margin-bottom:20px;
         }
 
         .hero-content span{
-            color:#38bdf8;
+            color:#6366f1;
         }
 
         .hero-content p{
             max-width:700px;
             margin:auto;
             font-size:1.2rem;
-            color:#cbd5e1;
+            color:#475569;
         }
 
+        /* BUTTON */
         .btn{
             display:inline-block;
             margin-top:30px;
-            padding:15px 35px;
-            background:#38bdf8;
+            padding:14px 32px;
+            background:linear-gradient(135deg,#6366f1,#22c55e);
             color:white;
             text-decoration:none;
             border-radius:50px;
-            font-weight:bold;
+            font-weight:600;
             transition:0.3s;
+            box-shadow:0 10px 25px rgba(99,102,241,0.25);
         }
 
         .btn:hover{
             transform:translateY(-3px);
-            background:#0ea5e9;
         }
 
+        /* SECTIONS */
         section{
             padding:100px 10%;
         }
@@ -107,9 +125,11 @@
 
         .section-title h2{
             font-size:2.5rem;
-            color:#38bdf8;
+            font-family:'Poppins', sans-serif;
+            color:#6366f1;
         }
 
+        /* FEATURES */
         .features{
             display:grid;
             grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -117,21 +137,30 @@
         }
 
         .card{
-            background:#1e293b;
+            background:white;
             padding:30px;
-            border-radius:15px;
+            border-radius:16px;
+            border:1px solid #e2e8f0;
+            box-shadow:0 10px 30px rgba(15,23,42,0.05);
             transition:0.3s;
         }
 
         .card:hover{
-            transform:translateY(-8px);
+            transform:translateY(-6px);
+            box-shadow:0 15px 40px rgba(15,23,42,0.1);
         }
 
         .card h3{
             margin-bottom:15px;
-            color:#38bdf8;
+            color:#6366f1;
+            font-family:'Poppins', sans-serif;
         }
 
+        .card p{
+            color:#475569;
+        }
+
+        /* STATS */
         .stats{
             display:flex;
             justify-content:center;
@@ -142,27 +171,47 @@
 
         .stat h3{
             font-size:3rem;
-            color:#38bdf8;
+            color:#22c55e;
+            font-family:'Poppins', sans-serif;
         }
 
+        .stat p{
+            color:#475569;
+        }
+
+        /* CTA */
         .cta{
             text-align:center;
-            background:#1e293b;
+            background:linear-gradient(135deg,#6366f1,#22c55e);
+            color:white;
             border-radius:20px;
             padding:70px;
         }
 
+        .cta p{
+            color:#f1f5f9;
+            margin-top:10px;
+        }
+
+        .cta .btn{
+            background:white;
+            color:#0f172a;
+            box-shadow:none;
+        }
+
+        /* FOOTER */
         footer{
             text-align:center;
             padding:30px;
-            background:#020617;
+            background:#0f172a;
             color:#94a3b8;
         }
 
+        /* MOBILE */
         @media(max-width:768px){
 
             .hero-content h1{
-                font-size:2.5rem;
+                font-size:2.4rem;
             }
 
             nav{
@@ -173,115 +222,115 @@
             nav ul{
                 flex-wrap:wrap;
                 justify-content:center;
+                gap:15px;
+            }
+
+            section{
+                padding:70px 6%;
             }
         }
     </style>
 </head>
+
 <body>
 
-    <nav>
-        <div class="logo">ContentAI</div>
+<nav>
+    <div class="logo">ContentAI</div>
 
-        <ul>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#vorteile">Vorteile</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
-        </ul>
-    </nav>
+    <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#vorteile">Vorteile</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+</nav>
 
-    <section class="hero">
+<section class="hero">
+    <div class="hero-content">
+        <h1>Erstelle Social-Media-Content mit <span>KI</span></h1>
 
-        <div class="hero-content">
-            <h1>Erstelle Social-Media-Content mit <span>KI</span></h1>
+        <p>
+            ContentAI generiert in Sekunden professionelle Beiträge,
+            Captions, Hashtags und Content-Ideen für Instagram,
+            TikTok, LinkedIn und Facebook.
+        </p>
 
-            <p>
-                ContentAI generiert in Sekunden professionelle Beiträge,
-                Captions, Hashtags und Content-Ideen für Instagram,
-                TikTok, LinkedIn und Facebook.
-            </p>
+        <a href="#features" class="btn">Kostenlos testen</a>
+    </div>
+</section>
 
-            <a href="#" class="btn">Jetzt kostenlos testen</a>
+<section id="features">
+
+    <div class="section-title">
+        <h2>Unsere Features</h2>
+    </div>
+
+    <div class="features">
+
+        <div class="card">
+            <h3>✍ KI-Textgenerator</h3>
+            <p>Erstellt automatisch professionelle Posts für alle Plattformen.</p>
         </div>
 
-    </section>
-
-    <section id="features">
-
-        <div class="section-title">
-            <h2>Unsere Features</h2>
+        <div class="card">
+            <h3>📈 Trendanalyse</h3>
+            <p>Erkennt aktuelle Trends und relevante Themen für deine Zielgruppe.</p>
         </div>
 
-        <div class="features">
-
-            <div class="card">
-                <h3>✍ KI-Textgenerator</h3>
-                <p>Erstellt automatisch professionelle Posts für alle Plattformen.</p>
-            </div>
-
-            <div class="card">
-                <h3>📈 Trendanalyse</h3>
-                <p>Erkennt aktuelle Trends und relevante Themen für deine Zielgruppe.</p>
-            </div>
-
-            <div class="card">
-                <h3>#️⃣ Hashtag-Generator</h3>
-                <p>Generiert passende Hashtags für maximale Reichweite.</p>
-            </div>
-
-            <div class="card">
-                <h3>📅 Content-Planung</h3>
-                <p>Plane Beiträge automatisch für Wochen oder Monate im Voraus.</p>
-            </div>
-
+        <div class="card">
+            <h3>#️⃣ Hashtag-Generator</h3>
+            <p>Generiert passende Hashtags für maximale Reichweite.</p>
         </div>
 
-    </section>
-
-    <section id="vorteile">
-
-        <div class="section-title">
-            <h2>Warum ContentAI?</h2>
+        <div class="card">
+            <h3>📅 Content-Planung</h3>
+            <p>Plane Beiträge automatisch für Wochen oder Monate im Voraus.</p>
         </div>
 
-        <div class="stats">
+    </div>
 
-            <div class="stat">
-                <h3>90%</h3>
-                <p>Zeitersparnis</p>
-            </div>
+</section>
 
-            <div class="stat">
-                <h3>24/7</h3>
-                <p>Verfügbarkeit</p>
-            </div>
+<section id="vorteile">
 
-            <div class="stat">
-                <h3>10x</h3>
-                <p>Schnellere Content-Erstellung</p>
-            </div>
+    <div class="section-title">
+        <h2>Warum ContentAI?</h2>
+    </div>
 
+    <div class="stats">
+
+        <div class="stat">
+            <h3>90%</h3>
+            <p>Zeitersparnis</p>
         </div>
 
-    </section>
-
-    <section id="kontakt">
-
-        <div class="cta">
-            <h2>Bereit für mehr Reichweite?</h2>
-            <p>
-                Nutze die Kraft künstlicher Intelligenz und erstelle
-                hochwertige Social-Media-Inhalte in wenigen Sekunden.
-            </p>
-
-            <a href="#" class="btn">Demo anfordern</a>
+        <div class="stat">
+            <h3>24/7</h3>
+            <p>Verfügbarkeit</p>
         </div>
 
-    </section>
+        <div class="stat">
+            <h3>10x</h3>
+            <p>Schnellere Content-Erstellung</p>
+        </div>
 
-    <footer>
-        © 2026 ContentAI | KI für Social-Media-Content-Erstellung
-    </footer>
+    </div>
+
+</section>
+
+<section id="kontakt">
+
+    <div class="cta">
+        <h2>Bereit für mehr Reichweite?</h2>
+        <p>Nutze KI und erstelle hochwertige Inhalte in Sekunden.</p>
+
+        <a href="#" class="btn">Demo anfordern</a>
+    </div>
+
+</section>
+
+<footer>
+    © 2026 ContentAI | KI für Social-Media-Content-Erstellung
+</footer>
 
 </body>
 </html>
-```
